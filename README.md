@@ -1,69 +1,110 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🛒 Projeto Supermercado 2025
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplicação web desenvolvida em **Laravel** para o gerenciamento dos cadastros básicos de um supermercado: **produtos**, **tipos de produtos** e **fornecedores**. O sistema permite listar os registros e oferece um CRUD completo para o cadastro de fornecedores.
 
-## About Laravel
+## 📋 Descrição
 
-# Projeto Supermercado 2025
+O Projeto Supermercado 2025 é um sistema de cadastro simples, voltado para o controle de informações essenciais de um supermercado. Ele utiliza o padrão **MVC** do Laravel, com models, controllers e views (Blade) integrados a um banco de dados relacional.
 
+As telas são construídas com **Bootstrap 5**, garantindo uma interface limpa e responsiva.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Funcionalidades
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Produtos**
+  - Listagem de produtos com ID, nome, descrição, preço (formatado em R$) e quantidade.
+- **Tipos de Produtos**
+  - Listagem dos tipos/categorias de produtos cadastrados.
+- **Fornecedores (CRUD completo)**
+  - Listar todos os fornecedores.
+  - Cadastrar um novo fornecedor (nome, razão social e CNPJ).
+  - Editar um fornecedor existente.
+  - Excluir um fornecedor (com confirmação).
+  - Validação dos campos obrigatórios e CNPJ único.
+  - Mensagens de feedback de sucesso após cada operação.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🗂️ Estrutura de dados
 
-## Learning Laravel
+| Tabela            | Campos principais                                  |
+|-------------------|----------------------------------------------------|
+| `produtos`        | nome, descrição (opcional), preço, quantidade      |
+| `tipos_produtos`  | nome                                               |
+| `fornecedores`    | nome, razão social, CNPJ (único)                   |
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Tecnologias utilizadas
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- [PHP 8.2+](https://www.php.net/)
+- [Laravel 12](https://laravel.com/)
+- [Blade](https://laravel.com/docs/blade) (engine de templates)
+- [Eloquent ORM](https://laravel.com/docs/eloquent)
+- [Bootstrap 5.3](https://getbootstrap.com/) (via CDN)
+- [SQLite](https://www.sqlite.org/) (banco de dados padrão; configurável)
+- [Composer](https://getcomposer.org/) e [Node.js / npm](https://nodejs.org/)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Instalação e execução local
 
-## Laravel Sponsors
+### Pré-requisitos
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- PHP 8.2 ou superior
+- Composer
+- Node.js e npm
 
-### Premium Partners
+### Passo a passo
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/MarcioMoreno-N/supermercado-2025.git
+   cd supermercado-2025
+   ```
 
-## Contributing
+2. **Instale as dependências do PHP:**
+   ```bash
+   composer install
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3. **Instale as dependências do front-end:**
+   ```bash
+   npm install
+   ```
 
-## Code of Conduct
+4. **Crie o arquivo de ambiente e gere a chave da aplicação:**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5. **Prepare o banco de dados (SQLite por padrão):**
+   ```bash
+   # Cria o arquivo do banco SQLite, se ainda não existir
+   touch database/database.sqlite
 
-## Security Vulnerabilities
+   # Executa as migrations
+   php artisan migrate
+   ```
+   > 💡 Para usar outro banco (MySQL, PostgreSQL, etc.), basta ajustar as variáveis `DB_*` no arquivo `.env`.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   php artisan serve
+   ```
 
-## License
+7. **Acesse no navegador:**
+   ```
+   http://localhost:8000
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Rotas disponíveis
+
+| Método | Rota                          | Descrição                          |
+|--------|-------------------------------|------------------------------------|
+| GET    | `/produtos`                   | Lista de produtos                  |
+| GET    | `/tipos-produtos`             | Lista de tipos de produtos         |
+| GET    | `/fornecedores`               | Lista de fornecedores              |
+| GET    | `/fornecedores/create`        | Formulário de cadastro             |
+| POST   | `/fornecedores`               | Salva um novo fornecedor           |
+| GET    | `/fornecedores/{id}/edit`     | Formulário de edição               |
+| PUT    | `/fornecedores/{id}`          | Atualiza um fornecedor             |
+| DELETE | `/fornecedores/{id}`          | Remove um fornecedor               |
+
+## 🎓 Projeto acadêmico
+
+Este é um **projeto acadêmico**, desenvolvido para fins de estudo e aprendizado do framework Laravel durante a faculdade. Não se destina a uso em produção.
